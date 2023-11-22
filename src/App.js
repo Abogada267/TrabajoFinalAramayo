@@ -1,11 +1,17 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
-const App = () => {
+function App  () {
   return (
-    <div className="App">
-          </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<div>Home</div>} />
+        <Route path="galeria" element={<div>Home</div>}/>
+      </Routes>
+    </BrowserRouter>
+      
+            );
 }
 
 export default App;
