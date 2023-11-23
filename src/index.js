@@ -1,11 +1,10 @@
 import React from 'react';
-import { createRoot } from 'react-dom';
-import Header from './components/Header';
-import NavBar from './components/NavBar/NavBar';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Header />
-    <NavBar />
-  </React.StrictMode>,
-);
+const el = document.getElementById('root');
+
+
+  const root = ReactDOM.createRoot(el);
+
+root.render(<App/>);

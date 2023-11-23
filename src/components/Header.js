@@ -1,6 +1,7 @@
 import React from 'react';
 import Brand from './Brand';
 import CategoryList from './CategoryList';
+import NavBar from './NavBar/NavBar';
 
 const Header = () => {
   return (
@@ -12,6 +13,8 @@ const Header = () => {
 
       <div className="header__search">
         <input type="text" placeholder="escribe el servicio ..." style={{ backgroundColor: 'lightgray' }} />
+
+        <NavBar/>
         <button type="button">Buscar</button>
       </div>
       <div className="header__nav" style={{ color: 'blue', fontFamily: 'Arial', paddingRight: '2cm', display: 'interline-block' }}>
