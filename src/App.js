@@ -1,25 +1,27 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Header from './components/Header';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Error from "./pages/Error";
+import Galeria from "./pages/Galeria";
+import Home from "./pages/Home";
+import Producto from "./pages/ItemDetailContainer.js";
+import ItemListContainer from "./pages/ItemListContainer";
+import Productos from "./pages/Productos";
 
-function App  () {
+
+function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter>     
       <Routes>
-        <Route path="/" element={<Header/>} />
-        <Route path="galeria" element={<div>galeria</div>} />
-        <Route path="Productos" element={<div>Productos</div>}/>
-         </Routes>
+    <Route path="/" element={<ItemListContainer/>}>
+    <Route index element={<Home/>}/>
+    <Route path="galeria" element={<Galeria/>}/>
+          <Route path="productos" element={<Productos />} />
+          <Route path="productos/:productoId" element={<Producto/>}/>
+    <Route path="*" element={<Error/>}/>
+        </Route>       
+      </Routes>        
     </BrowserRouter>
-      
-            );
+  );
 }
 
 export default App;
-
-
-
-
-
-

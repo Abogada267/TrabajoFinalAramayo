@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import Brand from './Brand';
 import CategoryList from './CategoryList';
-import NavBar from './NavBar/NavBar';
+import NavBar from "./NavBar";
+
 
 const Header = () => {
   return (
