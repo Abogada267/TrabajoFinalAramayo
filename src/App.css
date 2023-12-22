@@ -4,16 +4,15 @@ nav {
     align-items: center;
     justify-content: space-evenly;
     background-color: black;
-    height: 50px;
+    height: 60px;
     color: white;
     text-align: center;
 }
 
 footer {
     display: flex;
-    background-color: black;
-    height: 50px;
-    color: white;
+    background-color: rgb(24, 17, 231);
+    height: 80px;
     text-align: center;
 }
 
@@ -29,3 +28,71 @@ footer {
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+/* En tu archivo app.css */
+
+.item-list {
+    list-style: none;
+    padding: 0;
+}
+
+.item {
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.item h4 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.item p {
+    margin-top: 5px;
+    color: #666;
+}
+
+.item button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.item button:hover {
+    background-color: #0056b3;
+}
+.cart-widget {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+/* Estilos para el ícono de carrito */
+.cart-widget svg {
+  font-size: 24px;
+}
+
+/* Estilos para el distintivo de cantidad en el carrito */
+.cart-badge {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 4px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+

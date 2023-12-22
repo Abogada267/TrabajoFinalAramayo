@@ -1,0 +1,21 @@
+.cart-widget {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Estilos para el ícono de carrito */
+.cart-widget svg {
+    font-size: 24px;
+}
+
+/* Estilos para el distintivo de cantidad en el carrito */
+.cart-badge {
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 4px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

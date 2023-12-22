@@ -1,0 +1,28 @@
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.form-header {
+    color: blue;
+}
+
+.form-label {
+    color: blue;
+}
+
+.form-input {
+    background-color: #f0f8ff;
+    color: blue;
+}
+
+.form-button {
+    background-color: blue;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}

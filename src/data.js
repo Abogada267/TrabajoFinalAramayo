@@ -2,7 +2,7 @@ const listaProductos = [
         {
         "id": 1,
         "title": "DEMANDA -CONFECCION",
-        "price": 109.95,
+        "price": 41.000,
         "description": "redaccion de escritos",
         "category": "DEMANDA",
         "image": "https://concepto.de/wp-content/uploads/2013/03/demanda-judicial-e1552315519908.jpg",

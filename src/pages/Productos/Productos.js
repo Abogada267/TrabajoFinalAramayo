@@ -1,19 +1,19 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
 import { Link } from "react-router-dom";
-import listaProductos from '../data';
+import listaProductos from '../../data';
 import './Productos.css';
 
 function Productos() {
-  console.log(listaProductos);
-
   return (
     <div>
-      <h2>PRODUCTOS</h2>
+      <h2>SERVICIOS</h2>
       <div className="galeria">
         {listaProductos.map((producto) => (
           <article key={producto.id}>
             <h4>{producto.title}</h4>
             <img src={producto.image} alt={producto.title} />
-            <Link to={`/productos/${producto.id}`}>Detalle</Link>
+            <Link to={`/productos/${producto.id}`}>Ver detalles</Link>
           </article>
         ))}
       </div>
@@ -22,4 +22,3 @@ function Productos() {
 }
 
 export default Productos;
-

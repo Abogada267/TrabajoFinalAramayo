@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import listaProductos from "../data";
-import listaDerechoLaboral from "../data1";
+import listaProductos from "../../data";
+import listaDerechoLaboral from "../../data1";
 
 function ItemDetailContainer() {
   console.log(useParams());
