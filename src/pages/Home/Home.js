@@ -29,7 +29,9 @@ function Home() {
             <p>Precio: ${product.price.toFixed(2)}</p>
             <p>Categoría: {product.category}</p>
             <button onClick={() => addToCart(product)}>Comprar</button>
-            <Link to={`/productos/${product.id}`}>Ver Detalles</Link>
+           <Link to="/cart" className="cart-link">
+  <span role="img" aria-label="Carrito de Compras">🛒</span> Ver Carrito ({carrito.length})
+</Link>
           </div>
         ))}
       </div>

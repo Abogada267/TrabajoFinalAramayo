@@ -2,14 +2,14 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { Outlet, useParams } from "react-router-dom";
+import { useCart } from '../../CartContext';
 import listaProductos from "../../data.js";
 import Home from "../../pages/Home/Home.js";
-import { useCart } from '../CarContext'; // Ajusta la importación aquí
 import NavBar from "../NavBar/NavBar.js";
 
 function ItemListContainer() {
   const { categoryId } = useParams();
-  const { cartItems, addToCart } = useCart();  // Ajusta la importación aquí
+  const { cartItems, addToCart } = useCart();  
 
   const filteredProducts = listaProductos.filter(product => !categoryId || product.category === categoryId);
   

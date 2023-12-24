@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
-import { CartProvider, useCart } from '../CarContext';
+import { useCart } from '../../CartContext';
 import Checkout from '../Checkout/Checkout';
 
 function Cart() {
@@ -13,27 +12,25 @@ function Cart() {
   }, [cartItems]);
 
   return (
-    <CartProvider> 
-      <div>
-        <h2>Carrito de Compras</h2>
-        {cartItems.length === 0 ? (
-          <p>El carrito está vacío</p>
-        ) : (
-          <div>
-            <ul>
-              {cartItems.map((item) => (
-                <li key={item.id}>
-                  {item.title} - Cantidad: {item.quantity} - Precio: ${item.price * item.quantity}
-                </li>
-              ))}
-            </ul>
-            <p>Total: ${totalPrice}</p>
-          </div>
-        )}
+    <div>
+      <h2>Carrito de Compras</h2>
+      {cartItems.length === 0 ? (
+        <p>El carrito está vacío</p>
+      ) : (
+        <div>
+          <ul>
+            {cartItems.map((item) => (
+              <li key={item.id}>
+                {item.title} - Cantidad: {item.quantity} - Precio: ${item.price * item.quantity}
+              </li>
+            ))}
+          </ul>
+          <p>Total: ${totalPrice}</p>
+        </div>
+      )}
 
-        <Checkout />
-      </div>
-    </CartProvider> 
+      <Checkout />
+    </div>
   );
 }
 
