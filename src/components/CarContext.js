@@ -1,35 +1,67 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import PropTypes from 'prop-types';
 import React, { createContext, useContext, useState } from 'react';
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  const addItemToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]);
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
   };
 
-  const getTotalItems = () => cartItems.reduce((total, item) => total + item.quantity, 0);
+    const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
-  return (
-    <CartContext.Provider value={{ cartItems, addItemToCart, totalItems: getTotalItems() }}>
-      {children}
-    </CartContext.Provider>
-  );
-};
+  const value = {
+    cartItems,
+    addToCart,
+    totalItems,  
+  };
 
-CartProvider.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
-    throw new Error('useCart debe utilizarse dentro de un CartProvider');
+    throw new Error('useCart must be used within a CartProvider');
   }
   return context;
 };
 
-export default CartContext;
+function Cart() {
+  const { cartItems } = useCustomCart();
+
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  
+  useEffect(() => {
+    console.log('Cart Items:', cartItems);
+  }, [cartItems]);
+
+  return (
+    <div>
+      <h2>Carrito de Compras</h2>
+      {cartItems.length === 0 ? (
+        <p>El carrito está vacío</p>
+      ) : (
+        <div>
+          <ul>
+            {cartItems.map((item) => (
+              <li key={item.id}>
+                {item.title} - Cantidad: {item.quantity} - Precio: ${item.price * item.quantity}
+              </li>
+            ))}
+          </ul>
+          <p>Total: ${totalPrice}</p>
+        </div>
+      )}
+
+      <Checkout/>
+    </div>
+  );
+}
+
+export default Cart;

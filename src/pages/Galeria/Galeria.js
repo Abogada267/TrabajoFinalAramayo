@@ -12,8 +12,7 @@ function Galeria() {
           <article key={producto.id}>
             <h4>{producto.title}</h4>
             <img src={producto.image} alt={producto.title}/>
-            
-                       <Link to="/cart" className="comprar-link">
+            <Link to={`/productos/${producto.id}`} className="comprar-link">
               Comprar
             </Link>
           </article>
@@ -23,4 +22,4 @@ function Galeria() {
   );
 }
 
-export default Galeria
+export default Galeria;

@@ -1,58 +1,40 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-     import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { CartProvider, useCart } from '../CarContext';
+import Checkout from '../Checkout/Checkout';
 
-function Checkout() {
-  const [nombre, setNombre] = useState('');
-  const [apellido, setApellido] = useState('');
-  const [telefono, setTelefono] = useState('');
-  const [email, setEmail] = useState('');
-  const [repetirEmail, setRepetirEmail] = useState('');
-  const [orderId, setOrderId] = useState(null); 
+function Cart() {
+  const { cartItems } = useCart();
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
-  const handleFinalizarOrden = () => {
-       const nuevaOrderId = '123'; 
-    setOrderId(nuevaOrderId);
-  };
- 
-  const emailsCoinciden = email === repetirEmail;
+  useEffect(() => {
+    console.log('Cart Items:', cartItems);
+  }, [cartItems]);
 
   return (
-    <div>
-      <h2>Ingresa tus datos para continuar con la compra</h2>
+    <CartProvider> 
+      <div>
+        <h2>Carrito de Compras</h2>
+        {cartItems.length === 0 ? (
+          <p>El carrito está vacío</p>
+        ) : (
+          <div>
+            <ul>
+              {cartItems.map((item) => (
+                <li key={item.id}>
+                  {item.title} - Cantidad: {item.quantity} - Precio: ${item.price * item.quantity}
+                </li>
+              ))}
+            </ul>
+            <p>Total: ${totalPrice}</p>
+          </div>
+        )}
 
-      <label>
-        Nombre:
-        <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Apellido:
-        <input type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Teléfono:
-        <input type="text" value={telefono} onChange={(e) => setTelefono(e.target.value)} />
-      </label>
-      <br />
-
-
-      <label>
-        Correo Electrónico:
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Repetir Correo Electrónico:
-        <input type="email" value={repetirEmail} onChange={(e) => setRepetirEmail(e.target.value)} />
-      </label>
-      {!emailsCoinciden && <p>Los correos electrónicos no coinciden</p>}
-
-      <button onClick={handleFinalizarOrden}>Finalizar Orden</button>
-
-           {orderId && <p>ID de la orden: {orderId}</p>}
-    </div>
+        <Checkout />
+      </div>
+    </CartProvider> 
   );
 }
 
-export default Checkout;
+export default Cart;

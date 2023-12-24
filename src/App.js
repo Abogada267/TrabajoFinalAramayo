@@ -20,11 +20,9 @@ function App() {
     <CartProvider>
       <Router>
         <div>
-          {/* Puedes agregar el componente CartWidget en cualquier lugar donde desees mostrar el carrito */}
-          <CartWidget />
+            <CartWidget />
           
-          {/* Agregamos las rutas */}
-          <Routes>
+             <Routes>
             <Route path="/" element={<ItemListContainer />}>
               <Route index element={<Home />} />
               <Route path="galeria" element={<Galeria />} />

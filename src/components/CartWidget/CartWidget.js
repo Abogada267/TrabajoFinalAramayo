@@ -1,13 +1,13 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import CartContext from '../CarContext';
+import { useCart } from '../CarContext';
 
 function CartWidget() {
-  const { totalItems } = useContext(CartContext);
+  const { totalItems } = useCart();
 
   return (
     <div className="cart-widget">

@@ -1,12 +1,16 @@
+/* eslint-disable react/no-deprecated */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import App from "./App";
-
 
 const el = document.getElementById("root");
 
-const root =  ReactDOM.createRoot(el);
+ReactDOM.createRoot(el).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-root.render(<App/>);
+
 

@@ -13,7 +13,7 @@ function Productos() {
           <article key={producto.id}>
             <h4>{producto.title}</h4>
             <img src={producto.image} alt={producto.title} />
-            <Link to={`/productos/${producto.id}`}>Ver detalles</Link>
+            <Link to="/cart" className="comprar-link">Ver detalles</Link>
           </article>
         ))}
       </div>

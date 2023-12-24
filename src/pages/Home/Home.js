@@ -1,23 +1,25 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import listaProductos from '../../data';
-import Carrito from '../Carrito.js';
 
 function Home() {
   const categories = Array.from(new Set(listaProductos.map(product => product.category)));
-  const navigate = useNavigate();
   const [carrito, setCarrito] = useState([]);
 
-  const handleCategoryChange = (product) => {
-    setCarrito([...carrito, product]);
+  const addToCart = (product) => {
+    setCarrito(prevCarrito => {
+      const newCarrito = [...prevCarrito, product];
+      console.log('Añadiendo al carrito:', product);
+      console.log('Carrito actualizado:', newCarrito);
+      return newCarrito;
+    });
   };
 
   return (
     <div>
       <h1>Estudio Jurídico Malvina Aramayo</h1>
-
-      <h2>Productos Disponibles</h2>
+      <h2>Servicios Disponibles</h2>
       <div className="product-list">
         {listaProductos.map(product => (
           <div key={product.id} className="product-item">
@@ -26,7 +28,8 @@ function Home() {
             <p>{product.description}</p>
             <p>Precio: ${product.price.toFixed(2)}</p>
             <p>Categoría: {product.category}</p>
-            <button onClick={() => handleCategoryChange(product)}>Comprar</button>
+            <button onClick={() => addToCart(product)}>Comprar</button>
+            <Link to={`/productos/${product.id}`}>Ver Detalles</Link>
           </div>
         ))}
       </div>
@@ -35,7 +38,7 @@ function Home() {
         <span role="img" aria-label="Carrito de Compras">🛒</span> Ver Carrito ({carrito.length})
       </Link>
 
-      <select onChange={(e) => handleCategoryChange(e.target.value)}>
+      <select onChange={(e) => console.log('Cambiar categoría', e.target.value)}>
         <option value="">Todas las Categorías</option>
         {categories.map(category => (
           <option key={category} value={category}>
@@ -43,12 +46,9 @@ function Home() {
           </option>
         ))}
       </select>
-
       <Link to="/cart">
         <button>Ir al Carrito</button>
       </Link>
-
-        <Carrito carrito={carrito} />
     </div>
   );
 }

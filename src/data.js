@@ -2,7 +2,7 @@ const listaProductos = [
         {
         "id": 1,
         "title": "DEMANDA -CONFECCION",
-        "price": 41.000,
+        "price": 49000,
         "description": "redaccion de escritos",
         "category": "DEMANDA",
         "image": "https://concepto.de/wp-content/uploads/2013/03/demanda-judicial-e1552315519908.jpg",
@@ -14,7 +14,7 @@ const listaProductos = [
     {
         "id": 2,
         "title": "DEMANDA-CONTESTACION ",
-        "price": 22.3,
+        "price": 98000,
         "description": "contestación de demanda recibida ",
         "category": "DEMANDA",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtTn3OBFoHca5E5awlFiP1IEADqQaxeXHlNA&usqp=CAU",
@@ -26,7 +26,7 @@ const listaProductos = [
     {
         "id": 3,
         "title": "DEMANDA- PRESENTACION EN AUDIENCIA PRELIMINAR",
-        "price": 55.99,
+        "price":9800,
         "description": "presentación en audiencia preliminar",
         "category": "DEMANDA",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlKxjxnLcWQAunp0dhe_Sw4iHAnWp6y-tt-SrTiudQWZDWFe5asaHaJzj1VmQFQtu16O8&usqp=CAU",
