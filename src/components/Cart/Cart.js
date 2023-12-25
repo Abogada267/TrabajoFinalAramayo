@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
-import { useCart } from '../../CartContext';
+import { useCart } from '../CartContext/CartContext';
 import Checkout from '../Checkout/Checkout';
 
 function Cart() {

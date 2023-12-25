@@ -4,7 +4,7 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { useCart } from '../../CartContext';
+import { useCart } from '../CartContext/CartContext';
 
 function CartWidget() {
   const { totalItems } = useCart();

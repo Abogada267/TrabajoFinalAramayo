@@ -2,9 +2,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { Outlet, useParams } from "react-router-dom";
-import { useCart } from '../../CartContext';
 import listaProductos from "../../data.js";
 import Home from "../../pages/Home/Home.js";
+import { useCart } from '../CartContext/CartContext';
 import NavBar from "../NavBar/NavBar.js";
 
 function ItemListContainer() {
@@ -19,15 +19,14 @@ function ItemListContainer() {
     <div>
       <NavBar categories={categories} />
       <Outlet>
-        <Home products={filteredProducts} addToCart={addToCartHandler} />
+        <Home products={filteredProducts} addToCart={addToCart} />
       </Outlet>
       <footer>ASISTENCIA JURÍDICA EN LÍNEA</footer>
     </div>
   );
 
-  function addToCartHandler(product) {
-    addToCart(product);
+
   }
-}
+
 
 export default ItemListContainer;
