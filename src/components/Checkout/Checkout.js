@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import { useCart } from '../CartContext/CartContext';
 
 function Checkout() {
   const [nombre, setNombre] = useState('');
