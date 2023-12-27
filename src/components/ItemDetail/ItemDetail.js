@@ -1,7 +1,9 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import AddItemButton from "./AddItemButton";
 import Description from "./Description";
 import ItemQuantitySelector from "./ItemQuantitySelector";
 
@@ -19,10 +21,11 @@ const ItemDetail = ({ product, addToCart }) => {
       <p>{product.price}</p>
       <Description description={product.description} />
       <ItemQuantitySelector quantity={quantity} setQuantity={setQuantity} />
-      <button onClick={handleAddToCart}>Agregar al Carrito</button>
+      <AddItemButton handleAddToCart={handleAddToCart} /> 
       <Link to="/productos">Volver</Link>
     </div>
   );
 };
 
 export default ItemDetail;
+

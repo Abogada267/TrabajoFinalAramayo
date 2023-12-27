@@ -11,22 +11,21 @@ function ItemListContainer() {
   const { categoryId } = useParams();
   const { cartItems, addToCart } = useCart();  
 
-  const filteredProducts = listaProductos.filter(product => !categoryId || product.category === categoryId);
   
-  const categories = Array.from(new Set(listaProductos.map(product => product.category)));
+  const filteredProducts = listaProductos.filter(product => !categoryId || product.category === categoryId);
+
+    const categories = Array.from(new Set(listaProductos.map(product => product.category)));
 
   return (
     <div>
       <NavBar categories={categories} />
       <Outlet>
-        <Home products={filteredProducts} addToCart={addToCart} />
+                <Home products={filteredProducts} addToCart={addToCart} />
       </Outlet>
       <footer>ASISTENCIA JURÍDICA EN LÍNEA</footer>
     </div>
   );
-
-
-  }
-
+}
 
 export default ItemListContainer;
+

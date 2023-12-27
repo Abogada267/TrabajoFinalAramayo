@@ -35,7 +35,19 @@ const listaProductos = [
             "count": 500
         }
     },
+    {
     
+         "id": 4,
+        "title": "JUICIOS ABREVIADOS",
+        "price": 1000000,
+        "description": "INTERVENCION DE JUICIOS ABREVIADOS-ABOGADO DEFENSOR",
+        "category": "JUICIO ABREVIADO-DEFENSOR",
+        "image": "https://anbariloche-s3.cdn.net.ar/s3i233/2023/10/anbariloche/images/35/57/355764_86438e0c1d70fa7591c6415cad3fb78e363763e5c3dc3a68b399058c34aecf2c/sm.webp",
+        "rating": {
+            "rate": 3.9,
+            "count": 120
+        }
+     },
 ]
 
 export default listaProductos;

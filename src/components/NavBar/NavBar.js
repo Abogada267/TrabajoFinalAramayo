@@ -11,7 +11,8 @@ function NavBar({ categories }) {
     <nav>
       <ul>
         <li><Link to="/">INICIO</Link></li>
-        <li><Link to="/galeria">DERECHO LABORAL</Link></li>
+        <li><Link to="/productos">SERVICIOS DISPONIBLES</Link></li><li><Link to="/galeria">DERECHO LABORAL</Link></li>
+        <li><Link to="/Familia">DERECHO DE FAMILIA</Link></li>
         <li>
           <select onChange={(e) => navigate(`/categories/${e.target.value}`)}>
             <option value="">Todas las Categorías</option>

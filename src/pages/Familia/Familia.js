@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import listaProductos from '../../data';
 
-function Galeria({ addToCart }) {
+function Familia({ addToCart }) {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
 
@@ -16,8 +16,8 @@ function Galeria({ addToCart }) {
 
   return (
     <div>
-      <h2>Reclamos Laborales</h2>
-      <div className="galeria">
+      <h2>Derecho de Familia</h2>
+      <div className="familia">
         {listaProductos.map(producto => (
           <article key={producto.id}>
             <h4>{producto.title}</h4>
@@ -30,7 +30,4 @@ function Galeria({ addToCart }) {
   );
 }
 
-export default Galeria;
-
-
-
+export default Familia;

@@ -10,13 +10,13 @@ function Carrito({ carrito }) {
     navigate('/');
   };
   
-  const totalCarrito = carrito.reduce((total, item) => total + item.price, 0).toFixed(2);
+   const totalCarrito = carrito ? carrito.reduce((total, item) => total + item.price, 0).toFixed(2) : 0;
 
   return (
     <div>
       <h2>Carrito de Compras</h2>
       <ul>
-        {carrito.map(item => (
+        {carrito && carrito.map(item => (
           <li key={item.id}>{item.title} - ${item.price.toFixed(2)}</li>
         ))}
       </ul>

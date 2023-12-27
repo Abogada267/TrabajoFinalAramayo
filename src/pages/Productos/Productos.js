@@ -16,6 +16,7 @@ function Productos() {
             <Link to="/cart" className="comprar-link">Ver detalles</Link>
           </article>
         ))}
+         
       </div>
     </div>
   );

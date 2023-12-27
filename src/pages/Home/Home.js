@@ -1,19 +1,18 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import listaProductos from '../../data';
+import Carrito from '../../pages/Carrito';
 
-function Home() {
+function Home({ addToCart }) {
   const categories = Array.from(new Set(listaProductos.map(product => product.category)));
-  const [carrito, setCarrito] = useState([]);
+  const [quantity, setQuantity] = useState(1);
 
-  const addToCart = (product) => {
-    setCarrito(prevCarrito => {
-      const newCarrito = [...prevCarrito, product];
-      console.log('Añadiendo al carrito:', product);
-      console.log('Carrito actualizado:', newCarrito);
-      return newCarrito;
-    });
+  const handleAddToCart = (product, quantity) => {
+    addToCart(product, quantity);
+    console.log(`Añadido al carrito: ${product.title} - Cantidad: ${quantity}`);
   };
 
   return (
@@ -23,21 +22,20 @@ function Home() {
       <div className="product-list">
         {listaProductos.map(product => (
           <div key={product.id} className="product-item">
-            <img src={product.image} alt={product.title} />
+            <img src={product.image} alt={product.title} className="product-image" />
             <h3>{product.title}</h3>
             <p>{product.description}</p>
             <p>Precio: ${product.price.toFixed(2)}</p>
             <p>Categoría: {product.category}</p>
-            <button onClick={() => addToCart(product)}>Comprar</button>
-           <Link to="/cart" className="cart-link">
-  <span role="img" aria-label="Carrito de Compras">🛒</span> Ver Carrito ({carrito.length})
-</Link>
+            <button onClick={() => handleAddToCart(product, quantity)}>Comprar</button>
           </div>
         ))}
       </div>
+     
+      <Carrito />
 
       <Link to="/cart" className="cart-link">
-        <span role="img" aria-label="Carrito de Compras">🛒</span> Ver Carrito ({carrito.length})
+        <span role="img" aria-label="Carrito de Compras">🛒</span> Ver Carrito
       </Link>
 
       <select onChange={(e) => console.log('Cambiar categoría', e.target.value)}>
@@ -48,11 +46,9 @@ function Home() {
           </option>
         ))}
       </select>
-      <Link to="/cart">
-        <button>Ir al Carrito</button>
-      </Link>
     </div>
   );
 }
 
 export default Home;
+

@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from "react";
 
 const ItemQuantitySelector = ({ quantity, setQuantity }) => {
@@ -15,7 +15,14 @@ const ItemQuantitySelector = ({ quantity, setQuantity }) => {
 
   return (
     <div>
-      <label>Cantidad:</label>
+      <label>
+        Cantidad:
+        <input
+          type="number"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+        />
+      </label>
       <button onClick={handleDecrement}>-</button>
       <span>{quantity}</span>
       <button onClick={handleIncrement}>+</button>
